@@ -1,0 +1,35 @@
+/* CSS INICIAL DA PÁGINA */
+/* CORES PADRONIZADAS */
+:root {
+    --primaria: #667eea;
+    --secundaria: #764ba2;
+    --fundo: #f5f7fa;
+    --texto: #1e293b;
+}
+
+/* CSS RESET -  */
+* {
+    margin: 0; /* remove margens que os navagadores já botam em títulos, texto, e o próprio corpo da página (body) */
+    padding: 0; /* remove preenchimento interno de elementos, como no <ul> e <ol> */
+    box-sizing: border-box; /* ajuda a não quebrar o layout */
+}
+
+/*
+Resumo prático:
+Padding: Espaço interno (entre o texto e a borda).
+
+Border: A linha de contorno (a borda em si).
+
+Margin: Espaço externo (afasta o elemento dos outros vizinhos).
+*/
+
+body {
+    font-family: 'Segou UI', Arial, sans-serif;
+    background: var(--fundo);
+    color: var(--texto);
+    line-height: 1.6; /* distancia vertical entre linhas */
+}
+
+html {
+    scroll-behavior: smooth; /* faz a página rolar suavemente quando eu clico num link */
+}
