@@ -8,12 +8,6 @@
 }
 
 /* CSS RESET -  */
-* {
-    margin: 0; /* remove margens que os navagadores já botam em títulos, texto, e o próprio corpo da página (body) */
-    padding: 0; /* remove preenchimento interno de elementos, como no <ul> e <ol> */
-    box-sizing: border-box; /* ajuda a não quebrar o layout */
-}
-
 /*
 Resumo prático:
 Padding: Espaço interno (entre o texto e a borda).
@@ -22,6 +16,11 @@ Border: A linha de contorno (a borda em si).
 
 Margin: Espaço externo (afasta o elemento dos outros vizinhos).
 */
+* {
+    margin: 0; /* remove margens que os navagadores já botam em títulos, texto, e o próprio corpo da página (body) */
+    padding: 0; /* remove preenchimento interno de elementos, como no <ul> e <ol> */
+    box-sizing: border-box; /* ajuda a não quebrar o layout */
+}
 
 body {
     font-family: 'Segou UI', Arial, sans-serif;
@@ -32,4 +31,188 @@ body {
 
 html {
     scroll-behavior: smooth; /* faz a página rolar suavemente quando eu clico num link */
+}
+
+/* MENU COM FELX BOX */
+header {
+    background: linear-gradient(135deg, var(--primaria), var(--secundaria)); /* degrade de cores, o deg é o angulo de inclinação */
+    position:  sticky; /* deifine que o cabeçalho sempre ficará aparecendo na tela */
+    top: 0; /* junto com o position, serve pra colar o cabeçalho no topo da tela */
+    z-index: 10; /* diz a ordem de prioridade do elemento, para ele n se sobre por com outras coisas */
+}
+
+.menu {
+    max-width: 1000px; /* largura máxima do menu */
+    margin: 0 auto; /* centraliza o bloco automaticamente na vertical e horizontal */
+    padding: 16px 20px; /* cria um espaço interno entre o texto e a borda da div */
+    display: flex; /* seleciona o tipo do container como flex, alinhar de maneira inteligente, geralmente lado a lado  */
+    justify-content: space-between; /* joga os elementos em extremidades opostas */
+    align-items: center; /* alinha os intens no centro verticalmente */
+}
+
+.logo {
+    color: white;
+    font-weight: bold;
+    font-size: 1.3rem;
+}
+
+.menu ul {
+    list-style: none; /* tira os pontinhos de lista */
+    display: flex; /* deixa um do lado do outro */
+    gap: 20px; /* inutil sem ser usado em flexbox, espaço entre os itens */
+}
+
+.menu a {
+    color: white;
+    text-decoration: none; /* tira o sublinhado por ser link */
+}
+
+.menu a:hover {
+    text-decoration: underline; /* "animação" que deixa sublinhado na hora */
+}
+
+/* HERO COM GRADIENTE E AVATAR REDONDO */
+/* hero é a seção de destaque no começo da página */
+
+.hero {
+    background: linear-gradient(135deg, var(--primaria), var(--secundaria));
+    color: white;
+    text-align: center; /* alinha horizontalmente */
+    padding: 80px 20px; /* o primeiro parametro é do cima/baixo e o segundo é o de direita/esquerda */
+}
+
+.avatar {
+    /* o circulo */
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    /* fim do circulo */
+
+    background: white;
+    font-size: 60px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+}
+
+.hero h1 {
+    font-size: 2.5rem;
+}
+
+.botao {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 28px;
+    background: white;
+    color: var(--primaria);
+    border-radius: 30px;
+    text-decoration: none;
+    font-weight: bold;
+    transition: transform 0.3s;
+}
+
+.botao:hover {
+    transform: scale(1.08);
+}
+
+/* SEÇÕES E BARRAS DE HABILIDADE */
+#sobre,
+#projetos,
+#contato {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 60px 20px;
+}
+
+h2 {
+    color: var(--primaria);
+    font-size: 2rem;
+    margin-bottom: 20px;
+}
+
+.habilidades {
+    list-style: none;
+    margin-top: 20px;
+}
+
+.habilidades li {
+    margin-bottom: 14px;
+    font-weight: bold;
+}
+
+.barra {
+    background: #dfe3f0;
+    height: 12px;
+    border-radius: 6px;
+    margin-top: 4px;
+}
+
+.barra span {
+    display: block;
+    height: 100%;
+    border-radius: 6px;
+    background: linear-gradient(90deg, var(--primaria), var(--secundaria));
+}
+
+/* CARDS EM GRADE (CSS GRID) */
+.grade {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 24px;
+}
+
+.card {
+    background: white;
+    padding: 24px;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    transition: transform 0.3s, box-shadow 0.3s; /* só aparece quando usamos :hover */
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(0, 0, 0, 0.15);
+}
+
+.icone {
+    font-size: 40px;
+}
+
+.card h3 {
+    margin: 10px 0;
+    color: var(--secundaria);
+}
+
+/* modifiquei já o padrão */
+.card a,
+#contato a {
+    color: var(--primaria);
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.card a:hover,
+#contato a:hover {
+    text-decoration: underline;
+}
+
+/* RODAPÉ E VERSÃO CELULAR */
+footer {
+    background: var(--texto);
+    color: white;
+    text-align: center;
+    padding: 24px;
+}
+
+@media (max-width: 600px) {
+    .menu {
+        flex-direction: column;
+        gap: 10px;
+
+    }
+
+    .hero {
+        font-size: 1.8rem;
+    }
 }
